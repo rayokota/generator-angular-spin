@@ -121,6 +121,6 @@
 (let ([con (connection-pool-lease con-pool)])
 <% _.each(entities, function (entity) { %>
   (initialize-<%= entity.name %>! con)<% }); %>
-)<% }; %>
+  (disconnect con))<% }; %>
 (run #:port 8080 #:extra-files-paths (list (build-path "public")))
 
